@@ -1,0 +1,4 @@
+file,size_mb,rows,columns,time_column,start,end,valid_timestamps,duplicate_rows,duplicate_timestamps,missing_cells,missing_percent
+all.csv,66.95847511291504,886809,5,time,2018-11-12 19:00:00+00:00,2021-12-15 15:00:00+00:00,886809,0,859936,0,0.0
+ships_hourly.csv,1.1547565460205078,27093,4,,,,0,0,0,627,0.5785627283800243
+weather_hourly.csv,2.667222023010254,27093,11,,,,0,0,0,18650,6.25790626897924

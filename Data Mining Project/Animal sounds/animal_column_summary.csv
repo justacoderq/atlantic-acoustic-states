@@ -1,0 +1,7 @@
+,data_type,non_missing,missing,missing_percent,unique_values
+source_file,object,154798,0,0.0,105
+deployment,object,154798,0,0.0,18
+time,object,154798,0,0.0,26871
+animal,object,154798,0,0.0,8
+presence,int64,154798,0,0.0,2
+source_resolution,object,154798,0,0.0,3
