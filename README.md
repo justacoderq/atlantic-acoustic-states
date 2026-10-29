@@ -3,7 +3,7 @@
 Data-mining project for CS 6/5140 / DS 4140, Fall 2026, with instructor
 Jeff M. Phillips at the University of Utah.
 
-**Team:** Prachi Aswani, Jacob Erard, Parker [last name to be added]
+**Team:** Prachi Aswani, Jacob Erard, Parker Suzuki
 
 **Intermediate report:** November 3, 2026, at 10:00 a.m.
 
