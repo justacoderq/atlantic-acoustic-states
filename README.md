@@ -92,6 +92,18 @@ monthly acoustic-fingerprint GIF, and synthetic state-tone audio under
 recording or reconstructed audio. See
 [docs/SHARED_VISUALS.md](docs/SHARED_VISUALS.md) for output descriptions.
 
+## Ocean-rhythm discovery
+
+Run the periodicity, repeated-motif, change-point, anomaly, post-hoc context,
+interactive timeline, animation, and synthetic-sonification pipeline with:
+
+```powershell
+python -m scripts.run_ocean_rhythm
+```
+
+See [docs/OCEAN_RHYTHM.md](docs/OCEAN_RHYTHM.md). The presentation assets use
+processed sound-level data; synthetic tones are not original underwater audio.
+
 ## AI-use record
 
 AI assistance used for repository setup and data-inventory documentation is

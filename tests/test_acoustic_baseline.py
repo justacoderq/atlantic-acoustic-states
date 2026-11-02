@@ -9,6 +9,7 @@ from src.data_loading import load_acoustic_spectrum
 from src.features import build_interpretable_acoustic_features
 from src.poster_visuals import create_poster_snapshot, create_state_tone_sonification
 from src.preprocessing import standardize_acoustic_spectrum
+from src.rhythm import contiguous_segments, daily_acoustic_frame, discover_motifs
 from src.temporal import summarize_state_dynamics
 
 
@@ -194,3 +195,24 @@ def test_poster_snapshot_writes_weekly_state_share_plot(tmp_path):
 
     assert output.is_file()
     assert output.stat().st_size > 0
+
+
+def test_rhythm_tools_do_not_join_across_a_gap_or_deployment():
+    hourly = pd.DataFrame(
+        {
+            "time": pd.to_datetime(
+                ["2020-01-01T00:00Z", "2020-01-01T01:00Z", "2020-01-02T00:00Z", "2020-01-02T01:00Z"], utc=True
+            ),
+            "deployment": ["SB01_01", "SB01_01", "SB01_02", "SB01_02"],
+        }
+    )
+    for index, column in enumerate([
+        "low_mean_level_le_250hz", "mid_mean_level_250_2000hz", "high_mean_level_gt_2000hz",
+        "broadband_mean_level", "spectral_slope_per_log10_hz", "normalized_spectral_entropy",
+    ]):
+        hourly[column] = float(index)
+    hourly["segment_id"] = contiguous_segments(hourly)
+    assert hourly["segment_id"].nunique() == 2
+    daily = daily_acoustic_frame(hourly)
+    assert daily["acoustic_hours"].tolist() == [2, 2]
+    assert discover_motifs(daily, window_days=2).empty

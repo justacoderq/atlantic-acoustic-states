@@ -1,0 +1,6 @@
+{
+  "days_encoded": 90,
+  "start_date_utc": "2018-11-12 00:00:00+00:00",
+  "encoding": "Each observed day is a synthetic sine tone; higher acoustic unusualness maps to higher pitch.",
+  "warning": "This is not original underwater audio or an audio reconstruction."
+}

@@ -2,6 +2,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import matplotlib
+
+# This module is imported directly by tests and notebook users, not only by
+# scripts that already select a backend.  A non-interactive backend keeps image
+# creation reproducible on headless machines.
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation, PillowWriter
 import numpy as np
