@@ -15,7 +15,7 @@ repository scripts on the included data. The team is responsible for
 independently reviewing the methods, evaluation criteria, experimental design,
 interpretations, and conclusions. The baseline's silhouette-based choice of
 `k` is an exploratory, reproducible default, not a final scientific decision.
-Jacob's animal/GMM work is not included in this branch.
+Jacob's animal-data audit and exploratory GMM work are included below.
 
 ## 2026-10-29: Vessel and weather audit (Parker Suzuki)
 
@@ -37,3 +37,18 @@ Tool: Claude Code (Claude Sonnet 5.5).
 
 Team members should continue updating this file to identify AI assistance and
 the code, analysis, or writing it affected.
+
+## 2026-10-31: Animal data audit and GMM (Jacob Erard)
+
+Tool: Claude Code (Claude Opus 5.5).
+
+- **What AI did:** read the 105 animal NetCDF files and metadata; wrote the
+  audit and animal-table build scripts; generated the animal audit tables,
+  derived native-resolution alignment tables, exploratory GMM notebook, and
+  associated outputs; and drafted the animal-audit documentation.
+- **What I did:** review, reproduce, and decide the final methods and
+  interpretations before submitting the work.
+- **What it affected:** `scripts/audit_animals.py`,
+  `scripts/build_animal_tables.py`, `docs/ANIMAL_AUDIT.md`,
+  `notebooks/gmm_states.ipynb`, and their generated outputs. The exploratory
+  GMM result still requires team review before it supports a final conclusion.

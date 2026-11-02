@@ -27,11 +27,13 @@ the proposed three-person work split.
 The supplied archive is extracted and its original contents are preserved in
 `Data Mining Project/`. Prachi's acoustic-only baseline and its reproducible
 results are implemented. Parker's vessel/weather source audit and hourly table
-builder are also integrated; animal/GMM and density-clustering analyses are
-not yet included. See [data/README.md](data/README.md) for the dataset
+builder are also integrated. Jacob's animal-data audit, derived alignment
+tables, and exploratory GMM results are now integrated; density clustering is
+still pending. See [data/README.md](data/README.md) for the dataset
 inventory and known audit limitations, [docs/VESSEL_WEATHER_AUDIT.md](docs/VESSEL_WEATHER_AUDIT.md)
 for the vessel/weather audit, and [DATA_SOURCES.md](DATA_SOURCES.md) for source
-references and provenance gaps.
+  references and provenance gaps. See [docs/ANIMAL_AUDIT.md](docs/ANIMAL_AUDIT.md)
+  for the animal-data validation and comparison constraints.
 
 The original notebooks and source data remain in their extracted locations to
 avoid breaking paths or keeping duplicate copies. New shared scripts, notebooks,

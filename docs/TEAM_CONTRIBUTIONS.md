@@ -7,7 +7,7 @@ results.
 | Team member | Primary ownership | Initial tasks and expected handoff |
 |---|---|---|
 | **Prachi Aswani** | Repository integration, acoustic preprocessing, feature engineering, PCA, K-means baseline, acoustic-only shared visuals, report integration | Implemented the validated acoustic long-to-wide loader, standardized 33-band matrix, PCA/K-means grid, metrics, and baseline plots. Shared temporal summaries and acoustic-only presentation media can be generated from the baseline assignments. Suggested branch: `prachi/acoustic-baseline`. |
-| **Jacob Erard** | Animal-data audit, species and temporal-resolution documentation, GMM experiments, daily animal/state alignment, biological interpretation | Work is not included in this branch. Implement on the owner's branch and submit for review before integration. Suggested branch: `jacob/animal-gmm`. |
+| **Jacob Erard** | Animal-data audit, species and temporal-resolution documentation, GMM experiments, daily animal/state alignment, biological interpretation | The NetCDF audit, native-resolution animal alignment tables, and exploratory GMM notebook/results from `jacob/animal-gmm` are integrated. Biological interpretation and final comparison conclusions still require team review. |
 | **Parker Suzuki** | Vessel/weather audit, exact source and unit documentation, HDBSCAN or DBSCAN experiments, vessel/weather interpretation, unusual-event analysis | The vessel/weather source audit and hourly-table build script from `parker/density-context` are integrated. Density clustering and external-variable interpretation remain separate work. Suggested branch: `parker/density-context`. |
 
 ## Shared responsibilities

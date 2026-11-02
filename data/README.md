@@ -13,9 +13,9 @@ paths and avoid duplicate copies. Reproducible processed data produced by the ac
 | `combined_hourly_data.csv` | 11,991,581 | 27,093 hourly rows. Contains 33 acoustic-band columns, deployment, two vessel measurements, and ten weather/ocean measurements, plus an exported `Unnamed: 0` time-index column (47 columns total). 220 missing acoustic rows; the remaining missing counts are in source variables below. Treat as a derived candidate, not an authoritative source, until the merge is revalidated. |
 | `ships_hourly.csv` | 1,210,850 | 27,093 hourly rows; UTC time, deployment, ship minutes, ship presence. 209 missing values in each of the three data columns; no exact duplicate rows. See [docs/VESSEL_WEATHER_AUDIT.md](../docs/VESSEL_WEATHER_AUDIT.md) for source and derivation details. |
 | `weather_hourly.csv` | 2,796,785 | 27,093 hourly rows; ten weather/ocean variables. Missing counts: WDIR/WSPD/GST 734 each; PRES 522; ATMP 4,684; WTMP 523; DEWP 4,908; WVHT_44098/DPD_44098/APD_44098 1,937 each. No exact duplicate rows. See [docs/VESSEL_WEATHER_AUDIT.md](../docs/VESSEL_WEATHER_AUDIT.md) for source, units, and outage details. |
-| `Animal sounds/animals.csv` | 13,844,443 | 154,798 rows × 6 columns; no missing cells or exact duplicate rows. Contains 8 animal categories, 18 deployments, and nominal daily/hourly/detection-interval values. The CSV requires validation against the raw NetCDF products before it is used for animal/state comparisons; that analysis is not implemented in this branch. |
+| `Animal sounds/animals.csv` | 13,844,443 | 154,798 rows × 6 columns; no missing cells or exact duplicate rows. Contains 8 animal categories, 18 deployments, and daily/hourly/detection-interval values. The 105 NetCDF products were audited against it; see [docs/ANIMAL_AUDIT.md](../docs/ANIMAL_AUDIT.md) for native-resolution and coverage constraints. |
 | `all.xlsx` | 22,346,195 | One worksheet with the same five column names as `all.csv`. It appears to be another representation of the acoustic table; full content equality has not been verified. Avoid using or committing both copies unless needed. |
-| `Animal sounds/raw/*.nc` | 105 files | Deployment/species NetCDF products. Files are HDF5-based; the currently available SciPy NetCDF-3 reader could not read them. The animal-data audit and comparison work remains with its owner and is not included in this branch. |
+| `Animal sounds/raw/*.nc` | 105 files | Deployment/species NetCDF products. Their metadata and daily/hourly presence values were audited against `animals.csv`; see [docs/ANIMAL_AUDIT.md](../docs/ANIMAL_AUDIT.md). |
 
 The main acoustic, vessel, and weather tables span 2018-11-12 19:00 UTC
 through 2021-12-15 15:00 UTC. The acoustic table has 26,873 unique hours over
@@ -32,9 +32,9 @@ they should not be filled with invented values for clustering.
   regenerated from source when needed.
 - `Animal sounds/animal_raw_file_summary.csv` is empty (1 byte); it is not
   usable as an inventory.
-- The prior combined animal CSV has not been validated for animal/state
-  comparisons in this branch. Jacob's work should compare it against the raw
-  NetCDF products before analysis.
+- For animal/state comparisons, use the processed native-resolution tables and
+  constraints in `docs/ANIMAL_AUDIT.md`: daily species must remain daily, and
+  daily analyses require `keep_day == True`.
 - `team_dataset_summary.csv` is a prior summary, not a source of truth. Audit
   outputs should be regenerated from raw files and checked before reporting.
 
@@ -63,5 +63,6 @@ These outputs are generated from the preserved long-format `all.csv`; the
 matrix does not silently fill missing hours or impute incomplete spectra.
 
 Acoustic-only temporal and presentation visuals are generated under
-`results/shared/` by `python -m scripts.run_shared_visuals`. The animal/GMM and
-vessel/weather/density analyses are not part of this branch.
+`results/shared/` by `python -m scripts.run_shared_visuals`. Animal audit,
+alignment tables, and exploratory GMM outputs are included; density clustering
+and vessel/weather interpretation remain pending.
