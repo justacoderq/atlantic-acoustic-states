@@ -3,7 +3,7 @@
 Data-mining project for CS 6/5140 / DS 4140, Fall 2026, with instructor
 Jeff M. Phillips at the University of Utah.
 
-**Team:** Prachi Aswani, Jacob Erard, Parker Suzuki
+**Team:** Prachi Aswani, Jacob Erard, Parker [last name to be added]
 
 **Intermediate report:** November 3, 2026, at 10:00 a.m.
 
@@ -25,10 +25,12 @@ the proposed three-person work split.
 ## Current repository state
 
 The supplied archive is extracted and its original contents are preserved in
-`Data Mining Project/`. No experiments or results have been generated as part
-of this setup. See [data/README.md](data/README.md) for a verified inventory
-and known audit limitations, and [DATA_SOURCES.md](DATA_SOURCES.md) for source
-references and provenance gaps.
+`Data Mining Project/`. Prachi's acoustic-only baseline and its reproducible
+results are implemented. Jacob's animal/GMM analysis and Parker's
+vessel/weather/density analysis are not included here; they will be integrated
+from their own work after review. See [data/README.md](data/README.md) for the
+dataset inventory and known audit limitations, and [DATA_SOURCES.md](DATA_SOURCES.md)
+for source references and provenance gaps.
 
 The original notebooks and source data remain in their extracted locations to
 avoid breaking paths or keeping duplicate copies. New shared scripts, notebooks,
@@ -56,6 +58,36 @@ Create personal feature branches when the team is ready; this setup has not
 created any branches or commits. Suggested starting names and ownership areas
 are in [docs/TEAM_CONTRIBUTIONS.md](docs/TEAM_CONTRIBUTIONS.md). Share changes
 through pull requests and review data-processing decisions together.
+
+## Prachi's acoustic baseline
+
+The reproducible acoustic-only preprocessing and PCA/K-means baseline is in
+`src/` and `scripts/run_acoustic_baseline.py`. From the repository root, install
+dependencies with `python -m pip install -r requirements.txt`, then run:
+
+```powershell
+python -m scripts.run_acoustic_baseline
+```
+
+The script writes the standardized acoustic matrix and aligned metadata under
+`data/processed/`, and actual metrics, state assignments, and figures under
+`results/`. See [docs/PRACHI_ACOUSTIC_BASELINE.md](docs/PRACHI_ACOUSTIC_BASELINE.md)
+for method details, output descriptions, and interpretation cautions.
+
+## Shared acoustic visuals
+
+After running the acoustic baseline, generate temporal summaries and
+acoustic-only presentation media with:
+
+```powershell
+python -m scripts.run_shared_visuals
+```
+
+This generates deployment/gap-aware state dynamics, a poster snapshot, a
+monthly acoustic-fingerprint GIF, and synthetic state-tone audio under
+`results/shared/`. The audio encodes state IDs as tones; it is not underwater
+recording or reconstructed audio. See
+[docs/SHARED_VISUALS.md](docs/SHARED_VISUALS.md) for output descriptions.
 
 ## AI-use record
 

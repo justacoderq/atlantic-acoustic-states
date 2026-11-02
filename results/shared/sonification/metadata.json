@@ -1,0 +1,12 @@
+{
+  "selected_month_utc": "2018-12",
+  "days_sonified": 30,
+  "seconds_per_day": 0.18,
+  "sample_rate_hz": 22050,
+  "state_to_synthetic_tone_hz": {
+    "0": 330.0,
+    "1": 660.0
+  },
+  "interpretation": "Synthetic state-code tones; not a recording or reconstruction of underwater audio.",
+  "output_bytes": 238184
+}

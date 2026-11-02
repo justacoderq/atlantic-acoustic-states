@@ -1,0 +1,16 @@
+metric,value
+input_rows_long,886809
+hourly_observations,26873
+frequency_bands,33
+deployments,18
+first_observation_utc,2018-11-12 19:00:00+00:00
+last_observation_utc,2021-12-15 15:00:00+00:00
+pca_components_for_90_percent,4
+pca_variance_retained,0.9344052650972993
+silhouette_sample_size,3000
+k_values_tested,"2,3,4,5,6,7,8"
+random_seeds,"42,123,2026"
+n_init_per_seed,10
+selected_k_by_mean_sampled_silhouette,2
+selected_seed_lowest_inertia_at_selected_k,2026
+selected_solution_inertia,484424.2657677087
