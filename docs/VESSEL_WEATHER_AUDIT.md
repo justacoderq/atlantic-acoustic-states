@@ -22,7 +22,7 @@
   the weather summaries we compute for each acoustic state, and keep `WSPD`,
   `GST`, `PRES`, `WTMP`, and the wave fields?
   - Prachi:
-  - Jacob:
+  - Jacob: Yeah dropping is fine. No need to use wrong data knowingly.
   - Parker: I think we could just drop them since other columns like WTMP and wind give us similar information.
   - Decision:
 - **Question for the team: wind direction.** Direction is in degrees on a circle,
@@ -34,7 +34,7 @@
   lines in `scripts/build_full_range_csvs.py`, but it changes the shared table's
   columns). Which do we want?
   - Prachi:
-  - Jacob:
+  - Jacob: Yeah lets add those. I think there's possibly just some algorithm we can write here to just correctly average things, perhaps sin + cos being that algorithm
   - Parker: I think we should add the WDIR_sin and WDIR_cos since they should not be too hard to add.
   - Decision:
 
