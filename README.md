@@ -3,7 +3,7 @@
 Data-mining project for CS 6/5140 / DS 4140, Fall 2026, with instructor
 Jeff M. Phillips at the University of Utah.
 
-**Team:** Prachi Aswani, Jacob Erard, Parker [last name to be added]
+**Team:** Prachi Aswani, Jacob Erard, Parker Suzuki
 
 **Intermediate report:** November 3, 2026, at 10:00 a.m.
 
@@ -26,11 +26,12 @@ the proposed three-person work split.
 
 The supplied archive is extracted and its original contents are preserved in
 `Data Mining Project/`. Prachi's acoustic-only baseline and its reproducible
-results are implemented. Jacob's animal/GMM analysis and Parker's
-vessel/weather/density analysis are not included here; they will be integrated
-from their own work after review. See [data/README.md](data/README.md) for the
-dataset inventory and known audit limitations, and [DATA_SOURCES.md](DATA_SOURCES.md)
-for source references and provenance gaps.
+results are implemented. Parker's vessel/weather source audit and hourly table
+builder are also integrated; animal/GMM and density-clustering analyses are
+not yet included. See [data/README.md](data/README.md) for the dataset
+inventory and known audit limitations, [docs/VESSEL_WEATHER_AUDIT.md](docs/VESSEL_WEATHER_AUDIT.md)
+for the vessel/weather audit, and [DATA_SOURCES.md](DATA_SOURCES.md) for source
+references and provenance gaps.
 
 The original notebooks and source data remain in their extracted locations to
 avoid breaking paths or keeping duplicate copies. New shared scripts, notebooks,

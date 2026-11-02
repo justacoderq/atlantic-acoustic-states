@@ -2,13 +2,13 @@
 
 The ownership below is a starting point for the three-person team. Agree on
 shared definitions and evaluation criteria together before interpreting
-results. The Parker surname is still to be added.
+results.
 
 | Team member | Primary ownership | Initial tasks and expected handoff |
 |---|---|---|
 | **Prachi Aswani** | Repository integration, acoustic preprocessing, feature engineering, PCA, K-means baseline, acoustic-only shared visuals, report integration | Implemented the validated acoustic long-to-wide loader, standardized 33-band matrix, PCA/K-means grid, metrics, and baseline plots. Shared temporal summaries and acoustic-only presentation media can be generated from the baseline assignments. Suggested branch: `prachi/acoustic-baseline`. |
 | **Jacob Erard** | Animal-data audit, species and temporal-resolution documentation, GMM experiments, daily animal/state alignment, biological interpretation | Work is not included in this branch. Implement on the owner's branch and submit for review before integration. Suggested branch: `jacob/animal-gmm`. |
-| **Parker [last name TBD]** | Vessel/weather audit, exact source and unit documentation, HDBSCAN or DBSCAN experiments, vessel/weather interpretation, unusual-event analysis | Work is not included in this branch. Implement on the owner's branch and submit for review before integration. Suggested branch: `parker/density-context`. |
+| **Parker Suzuki** | Vessel/weather audit, exact source and unit documentation, HDBSCAN or DBSCAN experiments, vessel/weather interpretation, unusual-event analysis | The vessel/weather source audit and hourly-table build script from `parker/density-context` are integrated. Density clustering and external-variable interpretation remain separate work. Suggested branch: `parker/density-context`. |
 
 ## Shared responsibilities
 
