@@ -24,7 +24,7 @@
   - Prachi:
   - Jacob: Yeah dropping is fine. No need to use wrong data knowingly.
   - Parker: I think we could just drop them since other columns like WTMP and wind give us similar information.
-  - Decision:
+  - Decision: drop `ATMP` and `DEWP` from the per-state weather summaries (Jacob and Parker agree; Prachi to confirm). The columns stay in the shared tables.
 - **Question for the team: wind direction.** Direction is in degrees on a circle,
   so north is both 0 and 360. A plain average of 350 and 10 gives 180 (south)
   instead of 0 (north). The hourly `WDIR` is a plain average, so about 1.1% of
@@ -36,7 +36,7 @@
   - Prachi:
   - Jacob: Yeah lets add those. I think there's possibly just some algorithm we can write here to just correctly average things, perhaps sin + cos being that algorithm
   - Parker: I think we should add the WDIR_sin and WDIR_cos since they should not be too hard to add.
-  - Decision:
+  - Decision: replace `WDIR` with `WDIR_sin` and `WDIR_cos` (Jacob and Parker agree; Prachi to confirm). Built by `scripts/build_full_range_csvs.py` into `data/processed/weather_hourly_SB01_01-18.csv`; the original `weather_hourly.csv` is unchanged.
 
 ## Weather data
 

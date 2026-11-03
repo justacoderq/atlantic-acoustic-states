@@ -35,6 +35,14 @@ Tool: Claude Code (Claude Sonnet 5.5).
   output checked identical to the existing tables). No clustering, figures, or
   scientific conclusions were produced.
 
+## 2026-11-02: Wind-direction fix and density experiments (Parker Suzuki)
+
+Tool: Claude Code (Claude Sonnet 5.5).
+
+AI re-ran the wind-direction fix in `scripts/build_full_range_csvs.py` (sine and
+cosine columns), verified the output against the existing tables, and helped
+write the code for HDBSCAN/DBSCAN experiments.
+
 Team members should continue updating this file to identify AI assistance and
 the code, analysis, or writing it affected.
 
