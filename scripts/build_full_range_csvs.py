@@ -1,5 +1,6 @@
 import argparse, json
 from pathlib import Path
+import numpy as np
 import pandas as pd
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -42,9 +43,11 @@ def buoy(stn,years,cols):
     b=pd.concat(fr); b["t"]=pd.to_datetime(dict(year=b.YY,month=b.MM,day=b.DD,hour=b.hh,minute=b.mm),utc=True); b=b.set_index("t")
     for c,v in sent.items():
         if c in b: b[c]=b[c].where(b[c]<v)
+    # direction wraps at 360, so average its sine and cosine, not the angle (arctan2(WDIR_sin, WDIR_cos) recovers it)
+    if "WDIR" in b: b["WDIR_sin"]=np.sin(np.radians(b.WDIR)); b["WDIR_cos"]=np.cos(np.radians(b.WDIR))
     return b[cols].resample("1h").mean()
 
-env=buoy(44013,(2018,2019,2020,2021),["WDIR","WSPD","GST","PRES","ATMP","WTMP","DEWP"])
+env=buoy(44013,(2018,2019,2020,2021),["WDIR_sin","WDIR_cos","WSPD","GST","PRES","ATMP","WTMP","DEWP"])
 wave=buoy(44098,(2018,2019,2020,2021),["WVHT","DPD","APD"]).add_suffix("_44098")
 
 # ships-only hourly file
