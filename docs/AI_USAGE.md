@@ -60,3 +60,11 @@ Tool: Claude Code (Claude Opus 5.5).
   `scripts/build_animal_tables.py`, `docs/ANIMAL_AUDIT.md`,
   `notebooks/gmm_states.ipynb`, and their generated outputs. The exploratory
   GMM result still requires team review before it supports a final conclusion.
+
+## 2026-11-10: Context of motif pairs and unusual days (Parker Suzuki)
+
+Tool: Claude Code (Claude Sonnet 5.5).
+
+- **What AI did:** wrote the matched-baseline comparison and the strip-plot script, generated the two strip plots, and drafted the Google Doc summarizing them.
+- **What I did:** chose the 10 shape-only outliers and 3 closest motif pairs to study, defined the baseline as same deployment and calendar month, and interpreted the plots.
+- **What it affected:** `scripts/motif_strip_plot.py` and the figures in `results/distance_first_context/`.
