@@ -10,6 +10,7 @@ from src.features import build_interpretable_acoustic_features
 from src.poster_visuals import create_poster_snapshot, create_state_tone_sonification
 from src.preprocessing import standardize_acoustic_spectrum
 from src.rhythm import contiguous_segments, daily_acoustic_frame, discover_motifs
+from src.daily_similarity import build_complete_daily_windows, daily_distance_matrix
 from src.temporal import summarize_state_dynamics
 
 
@@ -216,3 +217,19 @@ def test_rhythm_tools_do_not_join_across_a_gap_or_deployment():
     daily = daily_acoustic_frame(hourly)
     assert daily["acoustic_hours"].tolist() == [2, 2]
     assert discover_motifs(daily, window_days=2).empty
+
+
+def test_daily_similarity_excludes_partial_days_and_shape_removes_loudness():
+    first = pd.date_range("2020-01-01", periods=24, freq="h", tz="UTC")
+    second = pd.date_range("2020-01-03", periods=24, freq="h", tz="UTC")
+    partial = pd.date_range("2020-01-05", periods=23, freq="h", tz="UTC")
+    times = first.append(second).append(partial)
+    observations = pd.DataFrame({"time": times, "deployment": ["A"] * len(times)})
+    base = np.tile(np.array([1.0, 2.0, 3.0]), (24, 1))
+    spectrum = pd.DataFrame(np.vstack([base, base + 10, base[:23]]), columns=["sound_10Hz", "sound_100Hz", "sound_1000Hz"])
+    windows = build_complete_daily_windows(observations, spectrum)
+    assert len(windows.metadata) == 2
+    level = daily_distance_matrix(windows.level_vectors)
+    shape = daily_distance_matrix(windows.shape_vectors)
+    assert level[0, 1] > 0
+    assert shape[0, 1] < 1e-10

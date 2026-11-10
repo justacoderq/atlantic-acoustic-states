@@ -9,14 +9,16 @@ Jeff M. Phillips at the University of Utah.
 
 ## Research question
 
-Can unsupervised data-mining methods discover recurring acoustic states in
-Stellwagen Bank, and how are those states related to time, vessel activity,
-weather, and animal presence?
+Can an explicit similarity measure between complete daily acoustic time-series
+objects discover recurring ocean-sound motifs and unusual days at Stellwagen
+Bank?  Once those acoustic structures are discovered, what external evidence
+is consistent with vessel, weather, or animal explanations?
 
-The project treats the observations as a multiview time series. The initial
-clustering space is the standardized 33-band acoustic spectrum. Vessel,
-weather, animal, and calendar variables are reserved for later interpretation
-and validation; they are not labels for a central classifier.
+The central representation is a complete `24 x 33` UTC-day sound-level matrix.
+We compare level-sensitive and shape-only acoustic distances, then mine
+nearest-neighbor motifs, mutual-kNN neighborhoods, and isolated days. Vessel,
+weather, animal, calendar, and existing state variables are reserved for later
+interpretation; they are not inputs to the acoustic distance.
 
 See [docs/RESEARCH_QUESTIONS.md](docs/RESEARCH_QUESTIONS.md) for the agreed
 question set and [docs/TEAM_CONTRIBUTIONS.md](docs/TEAM_CONTRIBUTIONS.md) for
@@ -103,6 +105,21 @@ python -m scripts.run_ocean_rhythm
 
 See [docs/OCEAN_RHYTHM.md](docs/OCEAN_RHYTHM.md). The presentation assets use
 processed sound-level data; synthetic tones are not original underwater audio.
+
+## Distance-first daily motif mining
+
+The project’s central data-mining analysis represents one complete UTC day as
+a `24 x 33` acoustic time-series object. It compares a level-sensitive distance
+against a shape-only distance, then mines nearest-neighbor motifs, a mutual-kNN
+similarity graph, and isolated days. Run it with:
+
+```powershell
+python -m scripts.run_distance_first_analysis
+```
+
+See [docs/DISTANCE_FIRST_PROJECT.md](docs/DISTANCE_FIRST_PROJECT.md). PCA,
+K-means, and GMM remain baselines; vessel, weather, and animal observations
+are used only after acoustic patterns are found.
 
 ## AI-use record
 
